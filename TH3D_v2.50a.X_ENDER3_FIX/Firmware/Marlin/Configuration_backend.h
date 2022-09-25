@@ -6,7 +6,7 @@
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-#define UNIFIED_VERSION "TH3D UFW 2.50a.1 remixed by Yanis FAREZ-GRIM"
+#define UNIFIED_VERSION "TH3D UFW 2.50a.2 remixed by Yanis FAREZ-GRIM"
 
 /**
  * ABL Probe Settings

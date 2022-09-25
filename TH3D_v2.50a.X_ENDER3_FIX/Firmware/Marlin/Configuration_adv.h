@@ -1439,7 +1439,7 @@
   #if DISABLED(SPACE_SAVER) && DISABLED(KINGROON_KP3) && DISABLED(SPACE_SAVER_2560)
     #define TURBO_BACK_MENU_ITEM
   #endif
-  
+
   /**
    * LED Control Menu
    * Add LED Control to the LCD menu
@@ -1593,7 +1593,7 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
-  //#define POWER_LOSS_RECOVERY
+  #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     #define PLR_ENABLED_DEFAULT   false // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
@@ -1767,7 +1767,7 @@
   #ifndef SDCARD_CONNECTION
     #define SDCARD_CONNECTION ONBOARD
   #endif
-  
+
   // Enable if SD detect is rendered useless (e.g., by using an SD extender)
   //#define NO_SD_DETECT
 
@@ -2096,7 +2096,7 @@
   //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
   #define BABYSTEP_MILLIMETER_UNITS         // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
-  
+
   #if ENABLED(FINE_BABYSTEPPING)
     #define BABYSTEP_MULTIPLICATOR_Z  0.010   // (steps or mm) Steps or millimeter distance for each Z babystep
   #else
@@ -2660,7 +2660,7 @@
                                                   // This short retract is done immediately, before parking the nozzle.
   #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     20  // (mm/s) Unload filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  
+
   #ifndef FILAMENT_CHANGE_UNLOAD_LENGTH           // Do not set an unload length if one is set by user in Configuration.h
     #if ENABLED(DIRECT_DRIVE_PRINTER)
       #define FILAMENT_CHANGE_UNLOAD_LENGTH      20
@@ -2670,7 +2670,7 @@
       #define FILAMENT_CHANGE_UNLOAD_LENGTH      100
     #endif
   #endif
-  
+
   #define FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE   8  // (mm/s) Slow move when starting load.
   #define FILAMENT_CHANGE_SLOW_LOAD_LENGTH    15  // (mm) Slow length, to allow time to insert material.
                                                   // 0 to disable start loading and skip to fast load only
@@ -2865,7 +2865,7 @@
     #if AXIS_IS_TMC(X)
       #if X_MOTOR_CURRENT > 0
         #define X_CURRENT X_MOTOR_CURRENT
-      #else  
+      #else
         #define X_CURRENT       600      // (mA) RMS current. Multiply by 1.414 for peak current.
       #endif
       #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
@@ -2885,7 +2885,7 @@
       //#define X_INTERPOLATE  true        // Enable to override 'INTERPOLATE' for the X axis
       //#define X_HOLD_MULTIPLIER 0.5    // Enable to override 'HOLD_MULTIPLIER' for the X axis
     #endif
-    
+
   #endif
 
   #if AXIS_IS_TMC(X2)
@@ -2909,7 +2909,7 @@
       #else
         #define Y_CURRENT   600
       #endif
-      
+
       #define Y_CURRENT_HOME  Y_CURRENT
       #define Y_MICROSTEPS     16
       #define Y_RSENSE          0.11
@@ -2948,15 +2948,15 @@
       #else
         #define Z_CURRENT     700
       #endif
-      
+
       #define Z_CURRENT_HOME  Z_CURRENT
-      
+
       #if ENABLED(ENDER5_NEW_LEADSCREW) && (ENABLED(EZBOARD) || ENABLED(EZBOARD_V2))
         #define Z_MICROSTEPS 8
       #else
         #define Z_MICROSTEPS 16
       #endif
-      
+
       #define Z_RSENSE          0.11
       #define Z_CHAIN_POS      -1
       //#define Z_INTERPOLATE  true
@@ -3042,7 +3042,7 @@
     #else
       #define E0_CURRENT    650
     #endif
-    
+
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1

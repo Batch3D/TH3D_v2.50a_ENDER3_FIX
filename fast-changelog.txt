@@ -1,0 +1,8 @@
+### v2.50a.1 ###
+- Uncommented config.h for Ender3 V422 board
+- corrected malfunction with preset default X/Y at -10
+- added "// BC: Overrided by BatchCode" for each modification
+- changed default obvious printing speed (too fast!)
+
+### v2.50a.2 ###
+- added power loss recovery function (configuration_adv.h

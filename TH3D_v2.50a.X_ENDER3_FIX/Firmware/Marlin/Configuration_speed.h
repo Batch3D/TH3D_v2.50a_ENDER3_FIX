@@ -37,7 +37,9 @@
 
 #ifndef DEFAULT_ACCELERATION
   #if X_BED_SIZE < 200
-    #define DEFAULT_ACCELERATION 2000
+    // BC: overrided by BatchCode - This is WAY too fast for accurate printing.
+    // #define DEFAULT_ACCELERATION 2000
+    #define DEFAULT_ACCELERATION 400
   #elif X_BED_SIZE < 300
     #define DEFAULT_ACCELERATION 1500
   #elif X_BED_SIZE < 400
@@ -48,7 +50,9 @@
 #endif
 
 #ifndef DEFAULT_RETRACT_ACCELERATION
-  #define DEFAULT_RETRACT_ACCELERATION 1000
+  // BC: overrided by BatchCode - This is WAY too fast for accurate printing.
+  // #define DEFAULT_RETRACT_ACCELERATION 1000
+  #define DEFAULT_RETRACT_ACCELERATION 500
 #endif
 
 #ifndef DEFAULT_TRAVEL_ACCELERATION

@@ -6,7 +6,7 @@
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-#define UNIFIED_VERSION "TH3D UFW 2.50a"
+#define UNIFIED_VERSION "TH3D UFW 2.50a.1 remixed by Yanis FAREZ-GRIM"
 
 /**
  * ABL Probe Settings
@@ -257,23 +257,23 @@
   #if ENABLED(ENABLE_LEVELING_FADE_HEIGHT)
     #define DEFAULT_LEVELING_FADE_HEIGHT 0 // (mm) Default fade height - Disable by default to prevent user issues
   #endif
-  
+
   #define SEGMENT_LEVELED_MOVES
   #define LEVELED_SEGMENT_LENGTH 5.0
-  
+
   #undef Z_PROBE_OFFSET_RANGE_MIN
   #define Z_PROBE_OFFSET_RANGE_MIN    -10
   #undef Z_PROBE_OFFSET_RANGE_MAX
   #define Z_PROBE_OFFSET_RANGE_MAX     1
-  
+
   #define Z_MIN_PROBE_REPEATABILITY_TEST
   #define Z_AFTER_HOMING               5
   #define Z_PROBE_LOW_POINT           -10
-  
+
   #if DISABLED(BLTOUCH)
     #define FIX_MOUNTED_PROBE
   #endif
-  
+
   #if ENABLED(SLOWER_PROBE_MOVES) || ENABLED(PROBING_STEPPERS_OFF)
     #define XY_PROBE_FEEDRATE (133*60)
   #else
@@ -283,25 +283,25 @@
       #define XY_PROBE_FEEDRATE (200*60)
     #endif
   #endif
-  
+
   #define PROBING_MARGIN EZABL_PROBE_EDGE
-  
+
   #if ENABLED(FIX_MOUNTED_PROBE) && DISABLED(HEATERS_ON_DURING_PROBING)
-    #define PROBING_HEATERS_OFF   
+    #define PROBING_HEATERS_OFF
   #endif
-  
+
   #define MULTIPLE_PROBING 2
   #define AUTO_BED_LEVELING_BILINEAR
-  
+
   #define GRID_MAX_POINTS_X EZABL_POINTS
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #define Z_SAFE_HOMING
-  
+
   #if ENABLED(Z_SAFE_HOMING)
     #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
     #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
   #endif
-  
+
   // ABL Probe Logic Settings
   #if ENABLED(BLTOUCH) // BLTouch uses false
     #undef Z_MIN_PROBE_ENDSTOP_INVERTING
@@ -600,7 +600,7 @@
 #define NOZZLE_PARK_FEATURE
 #if ENABLED(NOZZLE_PARK_FEATURE)
   #define NOZZLE_PARK_POINT { 10, 10, 10 }
-  #define NOZZLE_PARK_XY_FEEDRATE 100  
+  #define NOZZLE_PARK_XY_FEEDRATE 100
   #define NOZZLE_PARK_Z_FEEDRATE 8
 #endif
 
@@ -678,13 +678,13 @@
   #define MESH_EDIT_Z_STEP  0.025
   #define LCD_PROBE_Z_RANGE 4
   #define MESH_INSET EZABL_PROBE_EDGE
-  
+
   #define SEGMENT_LEVELED_MOVES
   #define LEVELED_SEGMENT_LENGTH 5.0
 
   #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
-  
+
   #if DISABLED(SPACE_SAVER)
     #define MESH_EDIT_MENU
   #endif

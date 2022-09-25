@@ -20,7 +20,8 @@
 // ***********   CREALITY PRINTERS W/V4.X.X BOARD - F103 CPU   **************
 //===========================================================================
 //------------------------------ V4.2.2 Board -------------------------------
-//#define ENDER3_V422_BOARD
+// BC: Overrided by BatchCode
+#define ENDER3_V422_BOARD
 //#define ENDER3_MAX_V422_BOARD
 //#define ENDER3_V2_V422_BOARD
 //#define ENDER5_V422_BOARD
@@ -97,7 +98,7 @@
 // If you have the new Ender 5/5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm
 //#define ENDER5_NEW_LEADSCREW
 
-// Ender 5 Plus ONLY ABL Settings 
+// Ender 5 Plus ONLY ABL Settings
 // By default the Ender 5 Plus comes with a BL Touch. Enabling the ENDER5_PLUS_EZABL or ENDER5_PLUS_NOABL will override the BL Touch setting
 // If you are using the stock BL Touch with a non-stock mount enable the CUSTOM_PROBE line above and enter the offsets below for the new mount.
 //#define ENDER5_PLUS_EZABL
@@ -112,7 +113,7 @@
 // Specify your IO pin below as well as this board does not have a dedicated NEOPIXEL header on it.
 //#define EZNEO_220
 
-// EZNeo Manual IO Pin Setting 
+// EZNeo Manual IO Pin Setting
 // If you have the EZNeo wired with your own 5V power provided, specify the pin used below.
 //#define NEOPIXEL_PIN PA4
 
@@ -174,11 +175,11 @@
   *
   * Specify a Probe position as { X, Y, Z }
   * Do NOT enter an number for the Z position in here. Store your offset in EEPROM.
-  * 
+  *
   * When is the offset POSITIVE?
   * If the probe is right of the nozzle the offset on X is POSITIVE
   * If the probe is behind of the nozzle the offset on Y is POSITIVE
-  * 
+  *
   * When is the offset NEGATIVE?
   * If the probe is left of the nozzle the offset on X is NEGATIVE
   * If the probe is in front of the nozzle the offset on Y is NEGATIVE
@@ -205,7 +206,7 @@
 //#define REVERSE_E_MOTOR_DIRECTION
 
 // FILAMENT SENSOR UNLOAD SETTINGS -----------------
-// If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR 
+// If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR
 //#define MOUNTED_FILAMENT_SENSOR
 
 // If you have a direct drive machine with a filament sensor uncomment DIRECT_DRIVE_PRINTER to decrease the unload length from 100mm to 20mm
@@ -295,8 +296,12 @@
 // How to use - measure (home XY then jog using the LCD 1mm at a time) the X and Y distance the nozzle is off
 // the build plate and then put those as NEGATIVE values below, positive values will NOT work (move your endstops to fix a positive offset).
 //#define HOME_ADJUST
-#define X_HOME_LOCATION -10
-#define Y_HOME_LOCATION -10
+// BC: Overrided by BatchCode - I don't understand those weird parameters that provocate a malfunction with the printer.
+// #define X_HOME_LOCATION -10
+// #define Y_HOME_LOCATION -10
+// BC: Overrided by BatchCode
+#define X_HOME_LOCATION 0
+#define Y_HOME_LOCATION 0
 
 // PID BED TEMPERATURE CONTROL ---------------------
 // If you want PID Bed Temperature control enable the below line. You will need to tune it for your machine.
@@ -327,7 +332,7 @@
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe.
-// Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html 
+// Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html
 // NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
 //#define MANUAL_MESH_LEVELING
 
@@ -351,11 +356,11 @@
  * ****************************DO NOT TOUCH ANYTHING BELOW THIS COMMENT**************************
  * Core machine settings are below. Do NOT modify these unless you understand what you are doing.
  */
- 
+
 /**
  * Sanity Checks
  */
- 
+
 //V42X with TMC Driver Sanity Checks
 #if ANY(ENDER5_V427_BOARD, ENDER5_V427_BOARD, ENDER5_PLUS_V427_BOARD, ENDER2_PRO_V423_BOARD, ENDER3_V2_V422_BOARD, CR10_V427_BOARD, CR10MINI_V427_BOARD, CR10S4_V427_BOARD, CR10S4_V427_BOARD, CR10S5_V427_BOARD, ENDER6_V431_BOARD)
   #define V42X_TMC220X_DRIVERS
@@ -396,18 +401,18 @@
 //CR-10 Series V427 Settings
 #if ENABLED(CR10_V427_BOARD) || ENABLED(CR10MINI_V427_BOARD) || ENABLED(CR10S4_V427_BOARD) || ENABLED(CR10S5_V427_BOARD)
   #define SERIAL_PORT 1
-  
+
   #define PRINTER_VOLTAGE_12
 
   #define BAUDRATE 115200
-  
+
   #define CR10_STOCKDISPLAY
   #define RET6_12864_LCD
-  
+
   #if ENABLED(REVERSE_KNOB_DIRECTION)
     #define REVERSE_ENCODER_DIRECTION
   #endif
-  
+
   #define MOTHERBOARD BOARD_CREALITY_V427
 
   #if ENABLED(CUSTOM_ESTEPS)
@@ -449,7 +454,7 @@
     #define PRINTER_VOLTAGE_12
     #define SLOWER_PROBE_MOVES
   #endif
-  
+
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
@@ -465,7 +470,7 @@
   #define X_HOME_DIR -1
   #define Y_HOME_DIR -1
   #define Z_HOME_DIR -1
-  
+
   #if NONE(V6_HOTEND, TH3D_HOTEND_THERMISTOR, KNOWN_HOTEND_THERMISTOR)
     #define TEMP_SENSOR_0 1
   #else
@@ -479,15 +484,15 @@
       #define TEMP_SENSOR_0 1
     #endif
   #endif
-  
-  #define TEMP_SENSOR_1 0 
+
+  #define TEMP_SENSOR_1 0
   #define TEMP_SENSOR_2 0
   #define TEMP_SENSOR_3 0
   #define TEMP_SENSOR_4 0
   #define TEMP_SENSOR_5 0
   #define TEMP_SENSOR_6 0
   #define TEMP_SENSOR_7 0
-  
+
   #if NONE(TH3D_BED_THERMISTOR, KEENOVO_TEMPSENSOR, KNOWN_BED_THERMISTOR, AC_BED)
     #define TEMP_SENSOR_BED 1
   #else
@@ -501,7 +506,7 @@
       #define TEMP_SENSOR_BED 11
     #endif
   #endif
-  
+
   #define TEMP_SENSOR_PROBE 0
   #define TEMP_SENSOR_CHAMBER 0
 
@@ -530,7 +535,7 @@
   #define Y_ENABLE_ON 0
   #define Z_ENABLE_ON 0
   #define E_ENABLE_ON 0
-  
+
   #if ENABLED(REVERSE_X_MOTOR)
     #define INVERT_X_DIR true
   #else
@@ -542,7 +547,7 @@
   #else
     #define INVERT_Y_DIR false
   #endif
-  
+
   #if ENABLED(REVERSE_Z_MOTOR)
     #define INVERT_Z_DIR false
   #else
@@ -554,7 +559,7 @@
   #else
     #define INVERT_E0_DIR false
   #endif
-  
+
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -565,7 +570,7 @@
 
   #define ENCODER_PULSES_PER_STEP 4
   #define ENCODER_STEPS_PER_MENU_ITEM 1
-  
+
   #if ENABLED(EZOUT_ENABLE)
     #define FILAMENT_RUNOUT_SENSOR
     #if DISABLED(EZOUT_ENABLE_J1)
@@ -604,7 +609,7 @@
       //#define FILAMENT_MOTION_SENSOR
     #endif
   #endif
-  
+
   #if ENABLED(EZNEO_220)
     #define RGB_LIGHTS
     #define NEOPIXEL_LED
@@ -631,22 +636,22 @@
       #define PRINTER_EVENT_LEDS
     #endif
   #endif
-  
+
 #endif
 // End CR-10 Series V427 Settings
- 
+
 //Ender 6 V431 Board Settings
 #if ENABLED(ENDER6_V431_BOARD)
 	#define SERIAL_PORT 1
-  
+
   #define PRINTER_VOLTAGE_24
 
   #define BAUDRATE 115200
   #define MOUNTED_FILAMENT_SENSOR
-  
+
   #define CR10_STOCKDISPLAY
   #define RET6_12864_LCD
-  
+
   #if ENABLED(REVERSE_KNOB_DIRECTION)
     #define REVERSE_ENCODER_DIRECTION
   #endif
@@ -667,7 +672,7 @@
     #else
       #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
     #endif
-  #endif  
+  #endif
 
   #define SHOW_BOOTSCREEN
 
@@ -676,7 +681,7 @@
   #define X_BED_SIZE 250
   #define Y_BED_SIZE 250
   #define Z_MAX_POS 400
-  
+
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
@@ -706,15 +711,15 @@
       #define TEMP_SENSOR_0 1
     #endif
   #endif
-  
-  #define TEMP_SENSOR_1 0 
+
+  #define TEMP_SENSOR_1 0
   #define TEMP_SENSOR_2 0
   #define TEMP_SENSOR_3 0
   #define TEMP_SENSOR_4 0
   #define TEMP_SENSOR_5 0
   #define TEMP_SENSOR_6 0
   #define TEMP_SENSOR_7 0
-  
+
   #if NONE(TH3D_BED_THERMISTOR, KEENOVO_TEMPSENSOR, KNOWN_BED_THERMISTOR, AC_BED)
     #define TEMP_SENSOR_BED 1
   #else
@@ -728,14 +733,14 @@
       #define TEMP_SENSOR_BED 11
     #endif
   #endif
-  
+
   #define TEMP_SENSOR_PROBE 0
   #define TEMP_SENSOR_CHAMBER 0
 
   #define DEFAULT_Kp 28.72
   #define DEFAULT_Ki 2.62
   #define DEFAULT_Kd 78.81
-  
+
   #define DEFAULT_bedKp 462.10
   #define DEFAULT_bedKi 85.47
   #define DEFAULT_bedKd 624.59
@@ -774,7 +779,7 @@
   #define E_ENABLE_ON 0
 
   #define COREYX
-  
+
   #if ENABLED(REVERSE_X_MOTOR)
     #define INVERT_X_DIR true
   #else
@@ -786,7 +791,7 @@
   #else
     #define INVERT_Y_DIR false
   #endif
-  
+
   #if ENABLED(REVERSE_Z_MOTOR)
     #define INVERT_Z_DIR true
   #else
@@ -798,7 +803,7 @@
   #else
     #define INVERT_E0_DIR true
   #endif
-  
+
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -839,7 +844,7 @@
       //#define FILAMENT_MOTION_SENSOR
     #endif
   #endif
-  
+
   #if ENABLED(EZNEO_220)
     #define RGB_LIGHTS
     #define NEOPIXEL_LED
@@ -875,20 +880,20 @@
   #define SERIAL_PORT 1
 
   #define BAUDRATE 115200
-  
+
   #define CR10_STOCKDISPLAY
   #define RET6_12864_LCD
-  
+
   #define PRINTER_VOLTAGE_24
-  
+
   #if ENABLED(REVERSE_KNOB_DIRECTION)
     #define REVERSE_ENCODER_DIRECTION
   #endif
-  
+
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_CREALITY_V423
   #endif
-  
+
   #if ENABLED(CUSTOM_ESTEPS)
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
   #else
@@ -902,7 +907,7 @@
   #define X_BED_SIZE 165
   #define Y_BED_SIZE 165
   #define Z_MAX_POS 180
-  
+
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
@@ -920,11 +925,11 @@
   #define USE_XMIN_PLUG
   #define USE_YMIN_PLUG
   #define USE_ZMIN_PLUG
-  
+
   #define X_HOME_DIR -1
   #define Y_HOME_DIR -1
   #define Z_HOME_DIR -1
-  
+
   #if NONE(V6_HOTEND, TH3D_HOTEND_THERMISTOR, KNOWN_HOTEND_THERMISTOR)
     #define TEMP_SENSOR_0 1
   #else
@@ -938,15 +943,15 @@
       #define TEMP_SENSOR_0 1
     #endif
   #endif
-  
-  #define TEMP_SENSOR_1 0 
+
+  #define TEMP_SENSOR_1 0
   #define TEMP_SENSOR_2 0
   #define TEMP_SENSOR_3 0
   #define TEMP_SENSOR_4 0
   #define TEMP_SENSOR_5 0
   #define TEMP_SENSOR_6 0
   #define TEMP_SENSOR_7 0
-  
+
   #if NONE(TH3D_BED_THERMISTOR, KEENOVO_TEMPSENSOR, KNOWN_BED_THERMISTOR, AC_BED)
     #define TEMP_SENSOR_BED 1
   #else
@@ -960,7 +965,7 @@
       #define TEMP_SENSOR_BED 11
     #endif
   #endif
-  
+
   #define TEMP_SENSOR_PROBE 0
   #define TEMP_SENSOR_CHAMBER 0
 
@@ -1001,19 +1006,19 @@
   #else
     #define INVERT_Y_DIR false
   #endif
-  
+
   #if ENABLED(REVERSE_Z_MOTOR)
     #define INVERT_Z_DIR false
   #else
     #define INVERT_Z_DIR true
   #endif
-  
+
   #if ENABLED(REVERSE_E_MOTOR_DIRECTION)
     #define INVERT_E0_DIR true
   #else
     #define INVERT_E0_DIR false
   #endif
-  
+
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -1024,7 +1029,7 @@
 
   #define ENCODER_PULSES_PER_STEP 4
   #define ENCODER_STEPS_PER_MENU_ITEM 1
-  
+
   #if ENABLED(EZOUT_ENABLE)
     #define FILAMENT_RUNOUT_SENSOR
     #if DISABLED(EZOUT_ENABLE_J1)
@@ -1055,7 +1060,7 @@
       //#define FILAMENT_MOTION_SENSOR
     #endif
   #endif
-  
+
   #if ENABLED(EZNEO_220)
     #define RGB_LIGHTS
     #define NEOPIXEL_LED
@@ -1084,26 +1089,26 @@
   #endif
 #endif
 //End Ender 2 Pro Board Settings
- 
+
 //Ender 3/3 MAX/5/5 Plus V42X Board Settings
 #if ANY(ENDER3_V422_BOARD, ENDER5_V422_BOARD, ENDER3_V427_BOARD, ENDER5_V427_BOARD, ENDER3_MAX_V422_BOARD, ENDER3_MAX_V427_BOARD, ENDER5_PLUS_V427_BOARD)
   #if ANY(ENDER3_MAX_V422_BOARD, ENDER3_MAX_V427_BOARD, ENDER5_PLUS_V427_BOARD)
     #define MOUNTED_FILAMENT_SENSOR
   #endif
-  
+
   #define PRINTER_VOLTAGE_24
 
   #define SERIAL_PORT 1
 
   #define BAUDRATE 115200
-  
+
   #define CR10_STOCKDISPLAY
   #define RET6_12864_LCD
-  
+
   #if ENABLED(REVERSE_KNOB_DIRECTION) && DISABLED(ENDER5_PLUS_V427_BOARD)
     #define REVERSE_ENCODER_DIRECTION
   #endif
-  
+
   #if ENABLED(ENDER3_V422_BOARD) || ENABLED(ENDER5_V422_BOARD) || ENABLED(ENDER3_MAX_V422_BOARD)
     #ifndef MOTHERBOARD
       #define MOTHERBOARD BOARD_CREALITY_V422
@@ -1113,7 +1118,7 @@
       #define MOTHERBOARD BOARD_CREALITY_V427
     #endif
   #endif
-  
+
   #if ENABLED(ENDER5_NEW_LEADSCREW)
     #define CREALITY_Z_STEPS 800
   #else
@@ -1161,13 +1166,13 @@
       #define Z_MAX_POS 250
     #endif
   #endif
-  
+
   #if ENABLED(ENDER3_MAX)
     #define X_BED_SIZE 300
     #define Y_BED_SIZE 300
     #define Z_MAX_POS 340
   #endif
-  
+
   #if ENABLED(ENDER5)
     #if ENABLED(XTENDER_E5_5XL)
       #define X_BED_SIZE 235
@@ -1179,7 +1184,7 @@
       #define Z_MAX_POS 300
     #endif
   #endif
-  
+
   #if ENABLED(ENDER5_PLUS)
     #if ENABLED(XTENDER_E5P_400)
       #define X_BED_SIZE 510
@@ -1199,7 +1204,7 @@
     #endif
     #define ENDER5_NEW_LEADSCREW
   #endif
-  
+
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
@@ -1241,15 +1246,15 @@
       #define TEMP_SENSOR_0 1
     #endif
   #endif
-  
-  #define TEMP_SENSOR_1 0 
+
+  #define TEMP_SENSOR_1 0
   #define TEMP_SENSOR_2 0
   #define TEMP_SENSOR_3 0
   #define TEMP_SENSOR_4 0
   #define TEMP_SENSOR_5 0
   #define TEMP_SENSOR_6 0
   #define TEMP_SENSOR_7 0
-  
+
   #if NONE(TH3D_BED_THERMISTOR, KEENOVO_TEMPSENSOR, KNOWN_BED_THERMISTOR, AC_BED)
     #define TEMP_SENSOR_BED 1
   #else
@@ -1263,14 +1268,14 @@
       #define TEMP_SENSOR_BED 11
     #endif
   #endif
-  
+
   #define TEMP_SENSOR_PROBE 0
   #define TEMP_SENSOR_CHAMBER 0
 
   #define DEFAULT_Kp 28.72
   #define DEFAULT_Ki 2.62
   #define DEFAULT_Kd 78.81
-  
+
   #define DEFAULT_bedKp 462.10
   #define DEFAULT_bedKi 85.47
   #define DEFAULT_bedKd 624.59
@@ -1300,7 +1305,7 @@
     #define X_DRIVER_TYPE TMC2208_STANDALONE
     #define Y_DRIVER_TYPE TMC2208_STANDALONE
     #define Z_DRIVER_TYPE A4988
-    #define E0_DRIVER_TYPE A4988  
+    #define E0_DRIVER_TYPE A4988
   #else
     #define X_DRIVER_TYPE A4988
     #define Y_DRIVER_TYPE A4988
@@ -1324,7 +1329,7 @@
   #else
     #define INVERT_Y_DIR false
   #endif
-  
+
   #if ENABLED(ENDER5) || ENABLED(ENDER5_PLUS)
     #if ENABLED(REVERSE_Z_MOTOR)
       #define INVERT_Z_DIR true
@@ -1344,7 +1349,7 @@
   #else
     #define INVERT_E0_DIR false
   #endif
-  
+
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -1355,7 +1360,7 @@
 
   #define ENCODER_PULSES_PER_STEP 4
   #define ENCODER_STEPS_PER_MENU_ITEM 1
-  
+
   #if ENABLED(ENDER5_PLUS_V427_BOARD)
     #if DISABLED(ENDER5_PLUS_NOABL) && DISABLED(ENDER5_PLUS_EZABL)
       #define BLTOUCH
@@ -1369,12 +1374,12 @@
         #define CUSTOM_PROBE
         #define NOZZLE_TO_PROBE_OFFSET { -44, -9, 0}
       #endif
-    #endif  
+    #endif
     #if DISABLED(ENDER5_PLUS_NOABL)
       #define ABL_ENABLE
     #endif
   #endif
-  
+
   #if ENABLED(EZOUT_ENABLE)
     #define FILAMENT_RUNOUT_SENSOR
     #if DISABLED(EZOUT_ENABLE_J1)
@@ -1409,7 +1414,7 @@
       //#define FILAMENT_MOTION_SENSOR
     #endif
   #endif
-  
+
   #if ENABLED(EZNEO_220)
     #define RGB_LIGHTS
     #define NEOPIXEL_LED
@@ -1436,10 +1441,10 @@
       #define PRINTER_EVENT_LEDS
     #endif
   #endif
-  
+
 #endif
 // End Ender 3/3 MAX/5/5 Plus V42X Board Settings
- 
+
 // Ender 3 V2 Settings
 #if ENABLED(ENDER3_V2_V422_BOARD) || ENABLED(ENDER3_V2_V427_BOARD)
   #define SERIAL_PORT 1
@@ -1534,15 +1539,15 @@
       #define TEMP_SENSOR_0 1
     #endif
   #endif
-  
-  #define TEMP_SENSOR_1 0 
+
+  #define TEMP_SENSOR_1 0
   #define TEMP_SENSOR_2 0
   #define TEMP_SENSOR_3 0
   #define TEMP_SENSOR_4 0
   #define TEMP_SENSOR_5 0
   #define TEMP_SENSOR_6 0
   #define TEMP_SENSOR_7 0
-  
+
   #if NONE(TH3D_BED_THERMISTOR, KEENOVO_TEMPSENSOR, KNOWN_BED_THERMISTOR, AC_BED)
     #define TEMP_SENSOR_BED 1
   #else
@@ -1556,14 +1561,14 @@
       #define TEMP_SENSOR_BED 11
     #endif
   #endif
-  
+
   #define TEMP_SENSOR_PROBE 0
   #define TEMP_SENSOR_CHAMBER 0
 
   #define DEFAULT_Kp 28.72
   #define DEFAULT_Ki 2.62
   #define DEFAULT_Kd 78.81
-  
+
   #define DEFAULT_bedKp 462.10
   #define DEFAULT_bedKi 85.47
   #define DEFAULT_bedKd 624.59
@@ -1605,7 +1610,7 @@
   #else
     #define INVERT_Y_DIR false
   #endif
-  
+
   #if ENABLED(REVERSE_Z_MOTOR)
     #define INVERT_Z_DIR false
   #else
@@ -1617,7 +1622,7 @@
   #else
     #define INVERT_E0_DIR false
   #endif
-  
+
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -1652,7 +1657,7 @@
   #define Z_PROBE_OFFSET_RANGE_MIN -10
   #define Z_PROBE_OFFSET_RANGE_MAX 10
   #define EXTRUDE_MAXLENGTH 1000
-  
+
   #if ENABLED(EZOUT_ENABLE)
     #define FILAMENT_RUNOUT_SENSOR
     #if DISABLED(EZOUT_ENABLE_J1)
@@ -1683,7 +1688,7 @@
       //#define FILAMENT_MOTION_SENSOR
     #endif
   #endif
-  
+
   #if ENABLED(EZNEO_220)
     #define RGB_LIGHTS
     #define NEOPIXEL_LED
@@ -1710,13 +1715,13 @@
       #define PRINTER_EVENT_LEDS
     #endif
   #endif
-  
+
 #endif
 // End Ender 3 V2 Settings
 
 /*
  * All other settings are stored in the Configuration_backend.h and Configuration_speed.h files. Do not change unless you know what you are doing.
  */
- 
+
 #include "Configuration_backend.h"
 #include "Configuration_speed.h"

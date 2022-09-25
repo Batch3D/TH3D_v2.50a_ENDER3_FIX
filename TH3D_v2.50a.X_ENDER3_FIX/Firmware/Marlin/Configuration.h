@@ -86,7 +86,8 @@
 //#define ENDER5_PLUS_OEM
 //#define ENDER6_OEM
 //#define ENDER6_PETSFANG //Source: https://www.th3dstudio.com/hc/downloads/stl-files/ender-6/ender-6-5015-ezabl-petsfang-mount/
-//#define CUSTOM_PROBE
+// BC: overrided by BatchCode
+#define CUSTOM_PROBE
 
 // Ender 3 V2 - LCD Setting
 // If you converted your Ender 3 V2 LCD to the 12864 Version, Uncomment the below line.
@@ -126,10 +127,14 @@
 //===========================================================================
 
 // Probing Grid Points - If you want more or less EZABL probe points change the number below, use odd numbers. Total points is # times #.
-#define EZABL_POINTS 3
+// BC: overrided by BatchCode
+// #define EZABL_POINTS 3
+#define EZABL_POINTS 5
 
 // Probe Edge - How far from the edge of the bed to probe from. Use 50 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING.
-#define EZABL_PROBE_EDGE 35
+// BC: overrided by BatchCode
+// #define EZABL_PROBE_EDGE 35
+#define EZABL_PROBE_EDGE 50
 
 // Fast Probing - Works with most machines and all EZABL sensors (8mm/s)
 #define EZABL_FASTPROBE
@@ -328,7 +333,8 @@
 // If you want to use the BL-Touch uncomment the BLTOUCH line below and uncomment #define CUSTOM_PROBE above and then enter in your offsets above in the CUSTOM PROBE section.
 //#define BLTOUCH
 // If you are using the 5 pin header for all the BL Touch connections, uncomment the below line
-//#define BLTOUCH_ON_5PIN
+// BC: overrided by BatchCode
+#define BLTOUCH_ON_5PIN
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe.
@@ -341,6 +347,7 @@
 // during SD printing. If this is found at bootup it will ask you if you want to resume the print.
 //
 // NOTE: This feature causes excessive wear on your SD card.
+// BC: overrided by BatchCode
 #define POWER_LOSS_RECOVERY
 
 // ARC Support Override ----------------------------

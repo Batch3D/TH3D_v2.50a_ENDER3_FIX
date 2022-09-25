@@ -7,4 +7,9 @@
 
 ### v2.50a.2 ###
 - changed version to 2.50a.2
-- added power loss recovery function (configuration_adv.h
+- added power loss recovery function (configuration_adv.h && configuration.h)
+
+### v2.50a.3 ###
+- changed version to 2.50a.3
+- enabled BL/CRTOUCH support
+- added custom probe for BL/CRTOUCH

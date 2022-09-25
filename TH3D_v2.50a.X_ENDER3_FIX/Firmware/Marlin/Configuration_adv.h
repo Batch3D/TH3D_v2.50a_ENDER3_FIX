@@ -1593,6 +1593,7 @@
    * an option on the LCD screen to continue the print from the last-known
    * point in the file.
    */
+  // BC: overrided by BatchCode
   #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
     #define PLR_ENABLED_DEFAULT   false // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
